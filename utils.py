@@ -1,6 +1,3 @@
-from dotenv import load_dotenv, dotenv_values
-import os
-
 from web3 import Web3, HTTPProvider
 import const
 import pandas as pd
@@ -8,10 +5,15 @@ from requests import get, post
 import time
 import streamlit as st
 
-load_dotenv()
+# from dotenv import load_dotenv
+import os
 
-DUNE_KEY = os.getenv("DUNE_KEY")
-INFURA_KEY = os.getenv("INFURA_KEY")
+INFURA_KEY = os.environ.get("INFURA_KEY")
+if INFURA_KEY is None:
+    raise ValueError("INFURA_KEY is not set")
+
+# load_dotenv()
+#INFURA_KEY = os.getenv("INFURA_KEY")
 
 w3 = Web3(HTTPProvider(f"https://mainnet.infura.io/v3/{INFURA_KEY}"))
 
