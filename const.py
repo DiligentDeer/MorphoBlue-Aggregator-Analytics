@@ -1,0 +1,23 @@
+BLOCK_TIME = 12  # Seconds
+BLOCK_INTERVAL = 600  # 7200 Secs
+# 600 Blocks every 2 hours on Average
+BLOCK_START = 19337000
+
+VAULT_NAME = ['TricryptoUSDT',
+              'TricryptoUSDC',
+              'TricryptoLLAMA',
+              'TryLSD',
+              'TriCRV']
+POOL_ADDRESS_LIST = ['0xf5f5b97624542d72a9e06f04804bf81baa15e2b4',
+             '0x7f86bf177dd4f3494b841a37e810a34dd56c829b',
+             '0x2889302a794da87fbf1d6db415c1492194663d13',
+             '0x2570f1bd5d2735314fc102eb12fc1afe9e6e7193',
+             '0x4ebdf703948ddcea3b11f675b4d1fba9d2414a14']
+CHAINLINK_USD = {
+    'crvUSD': '0xEEf0C605546958c1f899b6fB336C20671f9cD49F',
+    'USDT': '0x3E7d1eAB13ad0104d2750B8863b489D65364e32D',
+    'USDC': '0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6',
+    'ETH': '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419' #ETH/USD
+}
+
+WSTETH_PRICE = '0x4F67e4d9BD67eFa28236013288737D39AeF48e79' #wstETH/ETH
