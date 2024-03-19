@@ -230,7 +230,7 @@ def populate_data(blocks_with_no_data, LPprice, USDprice):
     new_USDprice = merge_chainlink_data(blocks_with_no_data)
     concat_USDprice = pd.concat([USDprice, new_USDprice], ignore_index=True)
 
-    # save_data(concat_LPprice,concat_USDprice)
+    save_data(concat_LPprice,concat_USDprice)
 
     return concat_LPprice, concat_USDprice
 

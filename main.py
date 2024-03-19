@@ -6,13 +6,13 @@ import streamlit as st
 # LOAD past saved files
 LPprice, USDprice = utils.load_data()
 
-# # Get the latest Block Number to check if enough time has passed to accumulate data for new Blocks
-# latest_block_with_data = LPprice['block'].max()
-#
-# historic_block_list = utils.accumulate_block_with_no_data(latest_block_with_data)
-#
-# if utils.w3.eth.block_number - const.BLOCK_INTERVAL > latest_block_with_data:
-#     LPprice, USDprice = utils.populate_data(historic_block_list, LPprice, USDprice)
+# Get the latest Block Number to check if enough time has passed to accumulate data for new Blocks
+latest_block_with_data = LPprice['block'].max()
+
+historic_block_list = utils.accumulate_block_with_no_data(latest_block_with_data)
+
+if utils.w3.eth.block_number - const.BLOCK_INTERVAL > latest_block_with_data:
+    LPprice, USDprice = utils.populate_data(historic_block_list, LPprice, USDprice)
 
 feed_dict = { f'{const.VAULT_NAME[0]}': utils.construct_feed(0, USDprice['price_USDT'], USDprice['price_crvUSD'], LPprice=LPprice)
               ,f'{const.VAULT_NAME[1]}': utils.construct_feed(1, USDprice['price_USDC'], USDprice['price_crvUSD'], LPprice=LPprice)
@@ -31,6 +31,10 @@ feed_dict = { f'{const.VAULT_NAME[0]}': utils.construct_feed(0, USDprice['price_
 
 # ------------------------------------------------------------------------------------------------------------------- #
 # Streamlit app
+
+# Set the layout width to a wider size
+st.set_page_config(layout="wide")
+
 
 st.title('MorphoBlue crvUSD Oracle Analytics')
 st.write(f'The starting block for the data is {const.BLOCK_START}')
